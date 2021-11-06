@@ -1,0 +1,16 @@
+{
+  "name": "slack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "slack.js",
+  "scripts": {
+    "start": "node slack.js",
+    "dev": "nodemon slack.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.2.0"
+  }
+}
