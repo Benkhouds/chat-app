@@ -1,61 +1,64 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="./styles.css">
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-1 namespaces">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="max-w-screen max-h-screen h-screen bg-indigo-50 bg-opacity-30 flex items-center">
+    
+    <div class="veil flex items-center  justify-center fixed top-0 left-0 w-full h-full  backdrop-filter backdrop-blur z-10">
+        <div class="modal p-3  bg-gray-50 w-1/5 h-1/4 rounded-md shadow-lg flex items-center justify-center ">
+            <form id="username-form" >
+                <p class="error text-red-500 text-sm font-semibold hidden">Please enter name!</p>
+                <label for="username" class="block mb-3 text-gray-500">Enter your name:</label>
+                <input id="username" type="text" placeholder="your name ..." class="block mb-4 p-2 focus:outline-none rounded ring-2 ring-indigo-200 focus:ring-offset-2 focus:ring-indigo-400" />
+                <button type="submit" class="py-2 px-4 tracking-4 rounded-md bg-indigo-400 text-white font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
+            </form>
+        </div>
+    </div> 
+<div class="bg-white  bg-opacity-90 w-2/3 h-3/4 rounded-lg p-4 mx-auto">
+    <div class="h-full grid grid-cols-12 divide-x-2 divide-gray-200">
+        <div class="namespaces px-4 py-3 space-y-4">
             <!-- dynamically generated namespaces -->
         </div>
-        <div class="col-sm-2 rooms">
-            <h3>Rooms</h3>
+        <div class="rooms px-4 py-2 col-span-3">
+            <h3 class="text-xl font-bold text-indigo-400 mb-4 underline">Rooms</h3>
             <ul class="room-list">
                     <!-- dynamically generated rooms -->
             </ul>
         </div>
-        <div class="chat-panel col-sm-9">
-            <div class="room-header row col-6">
-                <div class="col-sm-3"><span class="curr-room-text">Current Room</span> <span class="curr-room-num-users">Users <span class="glyphicon glyphicon-user"></span></span></div>
-                <div class="col-sm-3 search pull-right">
-                        <span class="glyphicon glyphicon-search"></span>
-                    <input type="text" id="search-box" placeholder="Search" />
+        <div class="col-span-8 h-full relative px-3 py-2">
+            <div class="room-header flex justify-between">
+                <div class="">
+                    <p class="curr-room-text font-semibold">Current Room</p> 
+                    <p class="curr-room-num-users font-bold text-green-300">Users</p>
+                </div>
+                <div class="">
+                        <!-- search icon -->
+                         <input type="text" class="p-2 focus:outline-none rounded ring-2 ring-gray-100 focus:ring-offset-2 focus:ring-gray-200" id="search-box" placeholder="Search" />
                 </div>
             </div> 
-            <div class="message-form">
-                <form id="user-input">
-                    <div class="col-sm-12">
-                        <input id="user-message" type="text" placeholder="Enter your message" />
-                    </div>
-                    <!-- <div class="col-sm-2">
-                        <input class="btn btn-primary" type="submit" value="send" />
-                    </div> -->
-                </form>
-            </div>
-            <ul id="messages" class="col-sm-12">
-                <li>
-                   <!--  <div class="user-image">
-                        <img src="https://via.placeholder.com/30" />
-                    </div>
-                    <div class="user-message">
-                        <div class="user-name-time">rbunch <span>1:25 pm</span></div>
-                        <div class="message-text">I went running today.</div>
-                    </div> -->
-                </li>
-
-                <li>
-                   <!--  <div class="user-image">
-                        <img src="https://via.placeholder.com/30" />
-                    </div>
-                    <div class="user-message">
-                        <div class="user-name-time">rbunch <span>2:25 pm</span></div>
-                        <div class="message-text">I'm getting my tires changed this afternoon.</div>
-                    </div> -->
-                </li>
-           
+            <ul id="messages" >
+            
 
             </ul>
+            <div class="form-wrapper absolute left-0 bottom-0 w-full py-1 px-3">
+                <form id="message-form">
+                        <input id="user-message" class="w-full p-2 focus:outline-none rounded ring-2 ring-gray-100 focus:ring-offset-2 focus:ring-gray-200" type="text" placeholder="Enter your message" />
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="/main.js" type="module"></script>
+<script src="/joinNs.js" type="module"></script>
+<script src="/joinRoom.js"type="module"></script>
+</body>
+
+</html>
